@@ -13,8 +13,8 @@ public class Employee {
     private int id;
     private String name;
     private double paid;
-    List<Employee> sub;
-    List<Employee> boss;
+    private List<Employee> sub;
+    private List<Employee> boss;
 
     /**
      * 添加下属
