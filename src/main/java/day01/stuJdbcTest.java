@@ -16,10 +16,11 @@ public class stuJdbcTest {
         ResultSet rs = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/kd?useSSL=false";
-             conn = DriverManager.getConnection(url, "root", "root");
+            String url = "jdbc:mysql://localhost:3306/kd?user=root&password=root&useSSL=false";
+             conn = DriverManager.getConnection(url);
              st = conn.createStatement();
-            rs = st.executeQuery("select * from student");
+             String sql = "select * from student";
+            rs = st.executeQuery(sql);
             while(rs.next()){
                 System.out.println(rs.getInt(1));
                 System.out.println(rs.getString(2));
