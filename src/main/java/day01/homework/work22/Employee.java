@@ -16,6 +16,12 @@ public class Employee {
     private List<Employee> sub;
     private List<Employee> boss;
 
+    public Employee(int id, String name, double paid) {
+        this.id = id;
+        this.name = name;
+        this.paid = paid;
+    }
+
     /**
      * 添加下属
      */
@@ -35,12 +41,48 @@ public class Employee {
      * 输出下属
      */
     public void printSub(){
-        System.out.println(sub.toString());
+        for (Employee employee : sub) {
+            System.out.println(employee);
+        }
     }
 
 
     public Employee() {
     }
+
+    /**
+     * 根据id删除下属
+     */
+    public void deleteByID(int id){
+        for (int i = 0; i < sub.size(); i++) {
+            if(sub.get(i).id == id){
+                sub.remove(sub.get(i));
+                return;
+            }
+        }
+        System.out.println("未找到");
+    }
+    /**
+     * 删除薪资大于(?)的
+     */
+    public void deleteByPaid(double paid){
+        for (int i = 0; i < sub.size(); i++) {
+            if(sub.get(i).paid > paid){
+//                System.out.println(sub.get(i));
+                sub.remove(sub.get(i));
+                i--;
+            }
+        }
+
+    }
+    /**
+     *
+     * @param id
+     * @param name
+     * @param paid
+     * @param sub
+     * @param boss
+     */
 
     public Employee(int id, String name, double paid, List<Employee> sub, List<Employee> boss) {
         this.id = id;
@@ -131,6 +173,6 @@ public class Employee {
     }
 
     public String toString() {
-        return "Employee{id = " + id + ", name = " + name + ", paid = " + paid + ", sub = " + sub + ", boss = " + boss + "}";
+        return "Employee{id = " + id + ", name = " + name + ", paid = " + paid + "}";
     }
 }
