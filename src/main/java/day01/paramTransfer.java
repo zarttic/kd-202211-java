@@ -35,11 +35,10 @@ public class paramTransfer {
 
         arr1 = arr2;
 
-        System.out.println("add->"+ Arrays.toString(arr1));//11,12,13
-        System.out.println("add->"+ Arrays.toString(arr2));//11,12,13
+        System.out.println("add->"+ Arrays.toString(arr1));
+        System.out.println("add->"+ Arrays.toString(arr2));
     }
 
-    //交换俩个变量的值
     private static void swap(int a, int b) {
         a ^= b;
         b ^= a;
